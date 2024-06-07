@@ -1,0 +1,6 @@
+@APIHistoriasClinicas_HostAddress = http://localhost:5229
+
+GET {{APIHistoriasClinicas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
