@@ -14,6 +14,8 @@ namespace HistoriasClinicas.API.Helpers
 
             CreateMap<Paciente, PacienteReadDto>()
                 .ForMember(p => p.Eps, m => m.MapFrom(e => e.Eps.NombreEPS));
+            
+            CreateMap<Especialidad, EspecialidadDto>().ReverseMap();
         }
             
     }

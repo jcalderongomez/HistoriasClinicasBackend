@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HistoriasClinicas.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e006bb93bb520387ee1376c7da9ab0c64f1db0c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e459e812733f33c51c12252f699596b3d36e9747")]
 [assembly: System.Reflection.AssemblyProductAttribute("HistoriasClinicas.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HistoriasClinicas.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

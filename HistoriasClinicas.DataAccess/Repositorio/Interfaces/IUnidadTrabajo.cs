@@ -10,6 +10,7 @@ namespace HistoriasClinicas.DataAccess.Repositorio.Interfaces
     {
         IPacienteRepositorio Paciente { get; }
         IEpsRepositorio Eps { get; }
+        IEspecialidadRepositorio Especialidad { get; }
 
         Task Guardar();
     }

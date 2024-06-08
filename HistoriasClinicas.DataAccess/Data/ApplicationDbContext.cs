@@ -12,8 +12,9 @@ namespace HistoriasClinicas.DataAccess
         }
         public DbSet<Paciente> Pacientes{ get; set; }
         public DbSet<Medico> Medicos{ get; set; }
-        public DbSet<Especialidad> Especialidades { get; set; }
         public DbSet<Eps> Epss{ get; set; }
+        public DbSet<Especialidad> Especialidades { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

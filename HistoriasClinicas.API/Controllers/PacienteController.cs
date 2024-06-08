@@ -30,13 +30,14 @@ namespace HistoriasClinicas.API.Controllers
         // GET: api/Pacientes
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<Paciente>>> GetPacientes()
+        public async Task<ActionResult<List<Paciente>>> GetPacientes()
         {
             _logger.LogInformation("Listado de Pacientes");
             var lista = await _unidadTrabajo.Paciente.ObtenerTodos(incluirPropiedades:"Eps");
+            _response.IsExitoso = true;
             _response.Resultado = lista;
-            _response.Mensaje = ("Listado de Pacientes");
-            return Ok(lista);
+            _response.Mensaje = "Listado de Pacientes";
+            return Ok(_response);
         }
 
         // GET: api/Pacientes/5

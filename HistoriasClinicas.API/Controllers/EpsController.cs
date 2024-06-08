@@ -4,6 +4,7 @@ using HistoriasClinicas.DataAccess.Repositorio.Interfaces;
 using HistoriasClinicas.Models.Modelos;
 using HistoriasClinicas.Models.Modelos.Dto;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace HistoriasClinicas.API.Controllers
 {
@@ -28,13 +29,14 @@ namespace HistoriasClinicas.API.Controllers
         // GET: api/Eps
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<Eps>>> GetEps()
+        public async Task<ActionResult<List<Eps>>> GetEps()
         {
             _logger.LogInformation("Listado de Eps");
             var lista = await _unidadTrabajo.Eps.ObtenerTodos();
+            _response.IsExitoso = true;
             _response.Resultado = lista;
-            _response.Mensaje = ("Listado de Eps");
-            return Ok(lista);
+            _response.Mensaje = "Listado de Eps";
+            return Ok(_response);
         }
 
         // GET: api/Eps/5
@@ -131,11 +133,22 @@ namespace HistoriasClinicas.API.Controllers
 
             if (eps == null)
             {
-                return NotFound();
+                _response.IsExitoso = false;
+                _response.Mensaje = "Error al elminar";
+                _response.Resultado = HttpStatusCode.BadRequest;
+
+                //return NotFound();
             }
-            _unidadTrabajo.Eps.Remover(eps);
-            await _unidadTrabajo.Guardar();
-            return NoContent();
+            else
+            {
+                _unidadTrabajo.Eps.Remover(eps);
+                await _unidadTrabajo.Guardar();
+                _response.IsExitoso = true;
+                _response.Mensaje = "Eps Eliminada";
+                _response.Resultado = HttpStatusCode.NoContent;
+            }
+            return Ok(_response);
+            
         }
     }
 }
