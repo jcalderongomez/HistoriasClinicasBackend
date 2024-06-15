@@ -9,19 +9,19 @@ namespace HistoriasClinicas.Models.Modelos
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Nombres es Requerido")]
-        [MaxLength(60, ErrorMessage = "Nombres debe ser Maximo 60 caracteres")]
+        [StringLength(60, MinimumLength = 1, ErrorMessage = "Nombres debe ser Maximo 60 caracteres")]
         public string Nombres { get; set; }
 
         [Required(ErrorMessage = "Apellidos es Requerido")]
-        [MaxLength(60, ErrorMessage = "Apellidos debe ser Maximo 60 caracteres")]
+        [StringLength(60, MinimumLength = 1, ErrorMessage = "Apellidos debe ser Maximo 60 caracteres")]
         public string Apellidos { get; set; }
 
         [Required(ErrorMessage = "Direccion es Requerido")]
-        [MaxLength(100, ErrorMessage = "Direccion debe ser Maximo 100 caracteres")]
+        [StringLength(100, MinimumLength = 1, ErrorMessage = "Direccion debe ser Maximo 100 caracteres")]
         public string Direccion { get; set; }
         
         [Required(ErrorMessage = "Teléfono es Requerido")]
-        [MaxLength(20, ErrorMessage = "Teléfono debe ser Maximo 20 caracteres")]
+        [StringLength(20, MinimumLength = 1, ErrorMessage = "Teléfono debe ser Maximo 20 caracteres")]
         public string Telefono { get; set;}
 
         [Required]
@@ -29,6 +29,8 @@ namespace HistoriasClinicas.Models.Modelos
         
         [ForeignKey("EspecialidadId ")]
         public Especialidad Especialidad { get; set;}
+
+        [Required(ErrorMessage = "El ESTADO es requerido")]
         public bool Estado { get; set; } = true;
     }
 }

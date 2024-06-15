@@ -1,4 +1,5 @@
-﻿using HistoriasClinicas.DataAccess.Repositorio.Interfaces;
+﻿using HistoriasClinicas.DataAccess.Repositorio.IRepositorio;
+using HistoriasClinicas.Models.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,13 +15,16 @@ namespace HistoriasClinicas.DataAccess.Repositorio
 
         public IEpsRepositorio Eps { get; private set; }
         public IEspecialidadRepositorio Especialidad { get; private set; }
-
+        public IMedicoRepositorio Medico { get; private set; }
+        public IHistoriaClinicaRepositorio HistoriaClinica { get; private set; }
         public UnidadTrabajo(ApplicationDbContext db)
         {
             _db = db;
             Eps = new EpsRepositorio(db);
             Especialidad = new EspecialidadRepositorio(db);
             Paciente = new PacienteRepositorio(db);
+            Medico = new MedicoRepositorio(db);
+            HistoriaClinica= new HistoriaClinicaRepositorio(db);
         }
 
 

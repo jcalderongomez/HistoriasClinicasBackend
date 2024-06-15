@@ -14,13 +14,12 @@ namespace HistoriasClinicas.DataAccess
         public DbSet<Medico> Medicos{ get; set; }
         public DbSet<Eps> Epss{ get; set; }
         public DbSet<Especialidad> Especialidades { get; set; }
-        
+        public DbSet<HistoriaClinica> HistoriaClinicas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
-
     }
 }

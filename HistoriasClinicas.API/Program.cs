@@ -2,7 +2,7 @@
 using HistoriasClinicas.API.Helpers;
 using HistoriasClinicas.DataAccess;
 using HistoriasClinicas.DataAccess.Repositorio;
-using HistoriasClinicas.DataAccess.Repositorio.Interfaces;
+using HistoriasClinicas.DataAccess.Repositorio.IRepositorio;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

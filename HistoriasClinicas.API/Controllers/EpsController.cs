@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HistoriasClinicas.DataAccess;
-using HistoriasClinicas.DataAccess.Repositorio.Interfaces;
+using HistoriasClinicas.DataAccess.Repositorio.IRepositorio;
 using HistoriasClinicas.Models.Modelos;
 using HistoriasClinicas.Models.Modelos.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +12,6 @@ namespace HistoriasClinicas.API.Controllers
     [ApiController]
     public class EpsController : ControllerBase
     {
-        private readonly ApplicationDbContext _db;
         private ResponseDto _response;
         private readonly ILogger<EpsController> _logger;
         private readonly IUnidadTrabajo _unidadTrabajo;
@@ -92,7 +91,7 @@ namespace HistoriasClinicas.API.Controllers
 
             if (epsExiste != null)
             {
-                ModelState.AddModelError("Nombre Duplicado", "Nombre del paciente ya existe");
+                ModelState.AddModelError("Nombre Duplicado", "Nombre de la eps ya existe");
                 return BadRequest(ModelState);
             }
             Eps eps= _mapper.Map<Eps>(epsDto);

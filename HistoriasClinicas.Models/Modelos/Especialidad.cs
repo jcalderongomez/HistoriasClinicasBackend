@@ -11,6 +11,8 @@ namespace HistoriasClinicas.Models.Modelos
         [MaxLength(100, ErrorMessage = "NombreEspecialidad  debe ser Maximo 100 caracteres")]
         public string NombreEspecialidad { get; set; }
         public string Descripcion { get; set; }
+
+        [Required(ErrorMessage = "El ESTADO es requerido")]
         public bool Estado { get; set; } = true;
     }
 }

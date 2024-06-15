@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using HistoriasClinicas.DataAccess;
-using HistoriasClinicas.DataAccess.Repositorio.Interfaces;
+using HistoriasClinicas.DataAccess.Repositorio.IRepositorio;
 using HistoriasClinicas.Models.Modelos;
 using HistoriasClinicas.Models.Modelos.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +34,18 @@ namespace HistoriasClinicas.API.Controllers
             _response.IsExitoso = true;
             _response.Resultado = lista;
             _response.Mensaje = "Listado de Especialidades";
+            return Ok(_response);
+        }
+
+        [HttpGet("ListadoActivos")] 
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<List<Especialidad>>> GetActivos()
+        {
+            _logger.LogInformation("Listado de Especialidades Activas");
+            var lista = await _unidadTrabajo.Especialidad.ObtenerTodos(e => e.Estado==true);
+            _response.IsExitoso = true;
+            _response.Resultado = lista;
+            _response.Mensaje = "Listado de Especialidades Activas";
             return Ok(_response);
         }
 

@@ -10,6 +10,8 @@ namespace HistoriasClinicas.Models.Modelos
         [Required(ErrorMessage = "Nombre EPS es Requerido")]
         [MaxLength(100, ErrorMessage = "Nombre EPS debe ser Maximo 100 caracteres")]
         public string NombreEPS { get; set; }
+
+        [Required(ErrorMessage = "El ESTADO es requerido")]
         public bool Estado { get; set; } = true;
 
     }

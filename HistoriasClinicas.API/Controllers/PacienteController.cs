@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using HistoriasClinicas.DataAccess;
 using HistoriasClinicas.DataAccess.Repositorio;
-using HistoriasClinicas.DataAccess.Repositorio.Interfaces;
+using HistoriasClinicas.DataAccess.Repositorio.IRepositorio;
 using HistoriasClinicas.Models.Modelos;
 using HistoriasClinicas.Models.Modelos.Dto;
 using Microsoft.AspNetCore.Mvc;

@@ -28,6 +28,8 @@ namespace HistoriasClinicas.Models.Modelos
         
         [ForeignKey("EpsId")]
         public Eps Eps { get; set; }
+
+        [Required(ErrorMessage = "El ESTADO es requerido")]
         public bool Estado { get; set; } = true;
     }
 }

@@ -68,6 +68,38 @@ namespace HistoriasClinicas.DataAccess.Migrations
                     b.ToTable("Especialidades");
                 });
 
+            modelBuilder.Entity("HistoriasClinicas.Models.Modelos.HistoriaClinica", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Diagnostico")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("MedicoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PacienteId")
+                        .HasMaxLength(60)
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MedicoId");
+
+                    b.HasIndex("PacienteId");
+
+                    b.ToTable("HistoriaClinicas");
+                });
+
             modelBuilder.Entity("HistoriasClinicas.Models.Modelos.Medico", b =>
                 {
                     b.Property<int>("Id")
@@ -146,6 +178,25 @@ namespace HistoriasClinicas.DataAccess.Migrations
                     b.HasIndex("EpsId");
 
                     b.ToTable("Pacientes");
+                });
+
+            modelBuilder.Entity("HistoriasClinicas.Models.Modelos.HistoriaClinica", b =>
+                {
+                    b.HasOne("HistoriasClinicas.Models.Modelos.Medico", "Medico")
+                        .WithMany()
+                        .HasForeignKey("MedicoId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("HistoriasClinicas.Models.Modelos.Paciente", "Paciente")
+                        .WithMany()
+                        .HasForeignKey("PacienteId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Medico");
+
+                    b.Navigation("Paciente");
                 });
 
             modelBuilder.Entity("HistoriasClinicas.Models.Modelos.Medico", b =>

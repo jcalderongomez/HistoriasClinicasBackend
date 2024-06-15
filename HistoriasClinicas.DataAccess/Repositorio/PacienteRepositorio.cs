@@ -1,4 +1,4 @@
-﻿using HistoriasClinicas.DataAccess.Repositorio.Interfaces;
+﻿using HistoriasClinicas.DataAccess.Repositorio.IRepositorio;
 using HistoriasClinicas.Models.Modelos;
 
 namespace HistoriasClinicas.DataAccess.Repositorio
